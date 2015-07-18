@@ -1,5 +1,18 @@
 # FluentLoggerSinatra
 
+Fluent Logger Sinatra can also be used in Ruby on Rails applications, if you'd
+like multiple loggers in your application to log specific things.
+
+If you're converting from using Loggers in your app, fluent-logger-ruby does not
+support the basic methods that the Ruby Logger does, like info, warn, error, etc.
+
+Especially if you're using a gem that logs in the background, like Delayed Job,
+Delayed Job will expect to be able to call info, debug, etc. on the logger you
+provide it.
+
+In addition, Sinatra applications expect to be able to call the method write
+on any logger you provide it. So here's the solution: fluent-logger-sinatra!
+
 ## Installation
 
 Add this line to your application's Gemfile:
@@ -26,11 +39,10 @@ logger = FluentLoggerSinatra::Logger.new('myapp', 'delayed_job', '127.0.0.1', 24
 logger.info("Delayed Job running on port ###")
 ```
 
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake rspec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+If you're using a Sinatra app:
+```ruby
+use ::Rack::CommonLogger, logger
+```
 
 ## Contributing
 
