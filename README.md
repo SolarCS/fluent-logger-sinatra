@@ -1,6 +1,10 @@
 # FluentLoggerSinatra
 
-Fluent Logger Sinatra can also be used in Ruby on Rails applications, if you'd
+[![Build Status](https://travis-ci.org/sliuu/fluent-logger-sinatra.svg)][travis]
+
+[travis]: https://travis-ci.org/sliuu/fluent-logger-sinatra
+
+Fluent Logger Sinatra was made for Sinatra apps, but can also be used in Ruby on Rails applications, if you'd
 like multiple loggers in your application to log specific things.
 
 If you're converting from using Loggers in your app, fluent-logger-ruby does not
